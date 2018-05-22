@@ -42,7 +42,10 @@ def main():
     frame = ((200.0, 300.0), (250.0, 100.0))
     # (Don't worry about these parameters for the moment. They just specify
     # the type of window, its size and position etc)
-    w = NSWindow.alloc().initWithContentRect_styleMask_backing_defer_(frame, 15, 2, 0)
+    s = NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask | NSResizableWindowMask
+    b = NSBackingStoreBuffered
+    d = False
+    w = NSWindow.alloc().initWithContentRect_styleMask_backing_defer_(frame, s, b, d)
     # ... tell it which delegate object to use (here it happens
     # to be the same delegate as the application is using)...
     w.setDelegate_(delegate)
